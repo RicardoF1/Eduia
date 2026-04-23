@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, Text, ForeignKey
-from database import Base
+from infrastructure.db.database import Base
 
 class Usuario(Base):
     __tablename__ = "usuario"
@@ -23,6 +23,7 @@ class Modelo(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100))
     tipo = Column(String(50))
+    ruta = Column(String(255))
     usuario_id = Column(Integer)
 
 class Entrenamiento(Base):
@@ -40,4 +41,3 @@ class Resultado(Base):
     id = Column(Integer, primary_key=True, index=True)
     entrenamiento_id = Column(Integer)
     resultado_json = Column(Text)
-

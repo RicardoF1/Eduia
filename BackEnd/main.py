@@ -1,4 +1,34 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from infrastructure.input.auth_controller import router as auth_router
+from infrastructure.input.dataset_controller import router as dataset_router
+from infrastructure.input.model_controller import router as model_router
+
+app = FastAPI()
+
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Rutas
+app.include_router(auth_router)
+app.include_router(dataset_router)
+app.include_router(model_router)
+
+@app.get("/")
+def root():
+    return {"mensaje": "API funcionando"}
+
+
+
+
+""" from fastapi import FastAPI
 from model import entrenar_modelo
 
 from database import engine
@@ -184,4 +214,4 @@ def get_resultados(id: int, db: Session = Depends(get_db)):
         Resultado.entrenamiento_id == id
     ).first()
 
-    return resultado
+    return resultado """

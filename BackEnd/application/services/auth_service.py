@@ -22,3 +22,14 @@ def create_access_token(data: dict):
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+class AuthService:
+
+    def hash_password(self, password: str):
+        return hash_password(password)
+
+    def verify_password(self, plain, hashed):
+        return verify_password(plain, hashed)
+
+    def create_access_token(self, data: dict):
+        return create_access_token(data)
