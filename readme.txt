@@ -7,6 +7,7 @@ pip install fastapi uvicorn pandas scikit-learn sqlalchemy pymysql python-multip
 
 Ejecutar 
 uvicorn main:app --reload
+npm start
 
 Listar Dependencias instaladas
 pip freeze
