@@ -1,0 +1,17 @@
+.center-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc; /* blanco suave */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8fafc;
+}
+
+.form-group {
+  width: 100%;
+}
